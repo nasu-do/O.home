@@ -125,7 +125,7 @@ export default function TCharDetailPage() {
         )}
         {(c.scenario || c.rule) && (
           <small style={{ marginLeft: 'auto', fontSize: 13, fontWeight: 400, color: 'var(--faint)' }}>
-          {[c.scenario, c.rule].filter(Boolean).join(' · ')}
+          {[c.rule, c.scenario].filter(Boolean).join(' · ')}
           </small>
        )}
 </h2>
