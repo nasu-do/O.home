@@ -103,6 +103,11 @@ export function TCharForm({ editId }: { editId?: string }) {
     if (!o) return;
     hydrated.current = true;
     setName(o.name); setScenario(o.scenario ?? ''); setRule(o.rule ?? ''); setRole(o.role ?? '');
+    setGender(o.gender ?? '');
+    setAge(o.age ?? '');
+    setHeight(o.height ?? '');
+    setJob(o.job ?? '');
+    setBirthday(o.birthday ?? '');
     setDesc(o.desc ?? '');
     setImgMode(o.imgMode ?? 'stamp');
     setSharedCrop(o.crop);
