@@ -18,7 +18,16 @@ function StandingImg({ imgId, ph }: { imgId?: string; ph: string }) {
   const url = useBlobUrl(imgId);
   if (!url) return <div className={`ph ${ph}`} style={{ position: 'absolute', inset: 0 }} />;
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={url} alt="" style={{ maxWidth: '100%', display: 'block' }} />;
+  return <img
+  src={url}
+  alt=""
+  style={{
+    maxWidth: '100%',
+    maxHeight: '100%',
+    objectFit: 'contain',
+    display: 'block',
+  }}
+/>;
 }
 
 export default function TCharDetailPage() {
@@ -62,7 +71,7 @@ export default function TCharDetailPage() {
               className="tcd-img"
               style={{
               aspectRatio: 'auto',
-              minHeight: 260,
+              height: 520,
               display: 'grid',
               placeItems: 'center',
               cursor: face?.imgId ? 'pointer' : undefined,
