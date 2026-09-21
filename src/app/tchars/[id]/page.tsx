@@ -22,8 +22,8 @@ function StandingImg({ imgId, ph }: { imgId?: string; ph: string }) {
   src={url}
   alt=""
   style={{
-    maxWidth: '100%',
-    maxHeight: '100%',
+    width: '100%',
+    height: '100%',
     objectFit: 'contain',
     display: 'block',
   }}
