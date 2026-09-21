@@ -74,6 +74,7 @@ export function TCharForm({ editId }: { editId?: string }) {
   const orig = editId ? tchars.find(c => c.id === editId) : undefined;
 
   const [name, setName] = useState(orig?.name ?? '');
+  const [nameSub, setNameSub] = useState(orig?.nameSub ?? '');
   const [scenario, setScenario] = useState(orig?.scenario ?? '');
   const [rule, setRule] = useState(orig?.rule ?? '');
   const [role, setRole] = useState(orig?.role ?? '');
@@ -102,7 +103,7 @@ export function TCharForm({ editId }: { editId?: string }) {
     const o = tchars.find(c => c.id === editId);
     if (!o) return;
     hydrated.current = true;
-    setName(o.name); setScenario(o.scenario ?? ''); setRule(o.rule ?? ''); setRole(o.role ?? '');
+    setName(o.name); setNameSub(o.nameSub ?? ''); setScenario(o.scenario ?? ''); setRule(o.rule ?? ''); setRole(o.role ?? '');
     setGender(o.gender ?? '');
     setAge(o.age ?? '');
     setHeight(o.height ?? '');
@@ -170,7 +171,7 @@ export function TCharForm({ editId }: { editId?: string }) {
     }
     if (outFaces.length === 0) outFaces.push({ id: newId(), label: '기본', ph: 'cool' });
    const patch = {
-    name: name.trim(), scenario: scenario.trim(), rule: rule.trim(), role: role.trim(),
+    name: name.trim(), nameSub: nameSub.trim(), scenario: scenario.trim(), rule: rule.trim(), role: role.trim(),
     gender: gender.trim(),
     age: age.trim(),
     height: height.trim(),
@@ -199,6 +200,8 @@ export function TCharForm({ editId }: { editId?: string }) {
         <div style={{ flex: 1 }}>
           <label className="k-label" style={{ marginBottom: 5 }}>Name</label>
           <KInput value={name} onChange={e => setName(e.target.value)} />
+          <label className="k-label" style={{ marginBottom: 5 }}>한자 / Spelling</label>
+          <KInput value={nameSub} onChange={e => setNameSub(e.target.value)} placeholder="한자 또는 영문 이름" /> 
         </div>
       </div>
      <div style={{ display: 'flex', gap: 8 }}>
