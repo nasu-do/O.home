@@ -120,6 +120,11 @@ export default function TCharDetailPage() {
         <div className="panel" style={{ padding: 24 }}>
           <h2 style={{ fontSize: 24, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
             {c.name}
+            {c.nameSub && (
+              <span style={{ fontSize: 14, fontWeight: 400, color: 'var(--faint)' }}>
+                {c.nameSub}
+              </span>
+            )}
             {face?.label && c.faces.length > 1 && (
             <span className="pill" style={{ marginLeft: 'auto' }}>{face.label}</span>
         )}
