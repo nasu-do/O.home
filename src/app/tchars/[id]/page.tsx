@@ -68,7 +68,7 @@ export default function TCharDetailPage() {
           {c.imgMode === 'standing' ? (
             /* 스탠딩 인장 — 전신 원본 비율 그대로 (클릭 확대) */
             <div
-              className="tcd-img"
+              className="tcd-img standing-img"
               style={{
               aspectRatio: 'auto',
               height: 520,
