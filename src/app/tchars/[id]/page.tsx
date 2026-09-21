@@ -56,7 +56,7 @@ export default function TCharDetailPage() {
   return (
     <section className="page">
       <div className="page-head">
-        <PageTitle>TRPG CHARACTERS</PageTitle>
+        <PageTitle href="/tchars">TRPG CHARACTERS</PageTitle>
         <EditableDesc k="tchars-detail-desc" def="표정 썸네일을 누르면 이미지가 전환됩니다" />
         <div className="head-actions">
           {isAdmin && <button className="btn btn-dark" onClick={() => router.push(`/tchars/${c.id}/edit`)}>EDIT</button>}
