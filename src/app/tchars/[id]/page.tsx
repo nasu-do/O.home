@@ -58,13 +58,32 @@ export default function TCharDetailPage() {
         <div className="panel" style={{ padding: 14 }}>
           {c.imgMode === 'standing' ? (
             /* 스탠딩 인장 — 전신 원본 비율 그대로 (클릭 확대) */
-            <div className="tcd-img" style={{
-              aspectRatio: 'auto', minHeight: 260, display: 'grid', placeItems: 'center',
-              cursor: face?.imgId ? 'zoom-in' : undefined,
+            <div
+              className="tcd-img"
+              style={{
+              aspectRatio: 'auto',
+              minHeight: 260,
+              display: 'grid',
+              placeItems: 'center',
+              cursor: face?.imgId ? 'pointer' : undefined,
+              position: 'relative',
             }}
-              onClick={() => { if (face?.imgId) setLbOpen(true); }}>
-              <StandingImg imgId={face?.imgId} ph={face?.ph ?? c.ph} />
-            </div>
+            onClick={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const ratio = x / rect.width;
+
+              if (ratio < 0.25) {
+                setFaceIdx(Math.max(0, faceIdx - 1));
+              } else if (ratio > 0.75) {
+                setFaceIdx(Math.min(c.faces.length - 1, faceIdx + 1));
+              } else if (face?.imgId) {
+                setLbOpen(true);
+              }
+            }}
+          >
+            <StandingImg imgId={face?.imgId} ph={face?.ph ?? c.ph} />
+          </div>
           ) : (
             /* 단일 인장 — 1:1 규격 */
             <div className="tcd-img" style={{ cursor: face?.imgId ? 'zoom-in' : undefined }}
