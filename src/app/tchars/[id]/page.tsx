@@ -84,9 +84,9 @@ export default function TCharDetailPage() {
               const x = e.clientX - rect.left;
               const ratio = x / rect.width;
 
-              if (ratio < 0.25) {
+              if (ratio < 0.35) {
                 setFaceIdx(Math.max(0, faceIdx - 1));
-              } else if (ratio > 0.75) {
+              } else if (ratio > 0.65) {
                 setFaceIdx(Math.min(c.faces.length - 1, faceIdx + 1));
               } else if (face?.imgId) {
                 setLbOpen(true);
