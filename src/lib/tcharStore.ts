@@ -14,6 +14,7 @@ export interface TrpgFace {
 export interface TrpgChar {
   id: string;
   name: string;              // 이름 (필수)
+  nameSub?: string;          // 한자/스펠링
   scenario: string;          // 다녀온 시나리오
   rule: string;              // 룰 (CoC 7th 등)
   role: string;              // 역할 — PL · GMPC · HO1 등
