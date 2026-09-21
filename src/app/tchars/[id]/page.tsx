@@ -88,18 +88,18 @@ export default function TCharDetailPage() {
 
         {/* 우 — 정보 + 설명 */}
         <div className="panel" style={{ padding: 24 }}>
-          <h2 style={{ fontSize: 22, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
+          <h2 style={{ fontSize: 24, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
             {c.name}
             {face?.label && c.faces.length > 1 && (
             <span className="pill" style={{ marginLeft: 'auto' }}>{face.label}</span>
         )}
         {(c.scenario || c.rule) && (
-          <small style={{ marginLeft: 'auto', fontSize: 12, fontWeight: 400, color: 'var(--faint)' }}>
+          <small style={{ marginLeft: 'auto', fontSize: 13, fontWeight: 400, color: 'var(--faint)' }}>
           {[c.scenario, c.rule].filter(Boolean).join(' · ')}
           </small>
        )}
 </h2>
-          <div style={{ display: 'grid', gap: 7, padding: '12px 0', borderBottom: '1px dashed var(--line)', fontSize: 12.5 }}>
+          <div style={{ display: 'grid', gap: 7, padding: '12px 0', borderBottom: '1px dashed var(--line)', fontSize: 13 }}>
             
             {c.gender && (
               <div style={{ display: 'flex', gap: 10 }}>
