@@ -200,8 +200,8 @@ export function TCharForm({ editId }: { editId?: string }) {
         <div style={{ flex: 1 }}>
           <label className="k-label" style={{ marginBottom: 5 }}>Name</label>
           <KInput value={name} onChange={e => setName(e.target.value)} />
-          <label className="k-label" style={{ marginBottom: 5 }}>한자 / Spelling</label>
-          <KInput value={nameSub} onChange={e => setNameSub(e.target.value)} placeholder="한자 또는 영문 이름" /> 
+          <label className="k-label" style={{ marginTop: 10, marginBottom: 5 }}>한자 / Spelling</label>
+          <KInput value={nameSub} onChange={e => setNameSub(e.target.value)} placeholder="한자 또는 영문 이름" />  
         </div>
       </div>
      <div style={{ display: 'flex', gap: 8 }}>
