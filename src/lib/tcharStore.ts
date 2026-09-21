@@ -17,6 +17,11 @@ export interface TrpgChar {
   scenario: string;          // 다녀온 시나리오
   rule: string;              // 룰 (CoC 7th 등)
   role: string;              // 역할 — PL · GMPC · HO1 등
+  gender?: string; // 성별
+  age?: string; // 나이
+  height?: string; // 키
+  job?: string; // 직업
+  birthday?: string; // 생일
   desc: string;              // 간단한 설명 (리치 에디터 HTML — 격리 렌더)
   // 이미지 방식 (v1.9): 단일 인장(표정마다 1:1 인장, 개별 크롭) /
   // 스탠딩 인장(표정 차분 — 모든 파일의 가로세로 크기 동일 강제, 썸네일 크롭 위치 공유)
