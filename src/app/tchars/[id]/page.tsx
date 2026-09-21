@@ -22,11 +22,13 @@ function StandingImg({ imgId, ph }: { imgId?: string; ph: string }) {
   src={url}
   alt=""
   style={{
-    width: '100%',
-    height: '100%',
-    objectFit: 'contain',
-    display: 'block',
-  }}
+  maxWidth: '100%',
+  maxHeight: '520px',
+  width: 'auto',
+  height: 'auto',
+  objectFit: 'contain',
+  display: 'block',
+}}
 />;
 }
 
