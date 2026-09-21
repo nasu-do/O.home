@@ -77,6 +77,11 @@ export function TCharForm({ editId }: { editId?: string }) {
   const [scenario, setScenario] = useState(orig?.scenario ?? '');
   const [rule, setRule] = useState(orig?.rule ?? '');
   const [role, setRole] = useState(orig?.role ?? '');
+  const [gender, setGender] = useState(orig?.gender ?? '');
+  const [age, setAge] = useState(orig?.age ?? '');
+  const [height, setHeight] = useState(orig?.height ?? '');
+  const [job, setJob] = useState(orig?.job ?? '');
+  const [birthday, setBirthday] = useState(orig?.birthday ?? '');
   const [desc, setDesc] = useState(orig?.desc ?? '');
   const [imgMode, setImgMode] = useState<'stamp' | 'standing'>(orig?.imgMode ?? 'stamp');
   const [sharedCrop, setSharedCrop] = useState<CropValue | undefined>(orig?.crop);
@@ -159,13 +164,18 @@ export function TCharForm({ editId }: { editId?: string }) {
       });
     }
     if (outFaces.length === 0) outFaces.push({ id: newId(), label: '기본', ph: 'cool' });
-    const patch = {
-      name: name.trim(), scenario: scenario.trim(), rule: rule.trim(), role: role.trim(),
-      desc, faces: outFaces, imgMode,
-      crop: imgMode === 'standing' ? sharedCrop : undefined,
-      stdW: imgMode === 'standing' ? stdDims?.w : undefined,
-      stdH: imgMode === 'standing' ? stdDims?.h : undefined,
-    };
+   const patch = {
+    name: name.trim(), scenario: scenario.trim(), rule: rule.trim(), role: role.trim(),
+    gender: gender.trim(),
+    age: age.trim(),
+    height: height.trim(),
+    job: job.trim(),
+    birthday: birthday.trim(),
+    desc, faces: outFaces, imgMode,
+    crop: imgMode === 'standing' ? sharedCrop : undefined,
+    stdW: imgMode === 'standing' ? stdDims?.w : undefined,
+    stdH: imgMode === 'standing' ? stdDims?.h : undefined,
+  };
     if (orig) {
       setTchars(tchars.map(c => c.id === orig.id ? { ...c, ...patch } : c));
       toast('저장되었습니다');
@@ -191,16 +201,39 @@ export function TCharForm({ editId }: { editId?: string }) {
           <KInput value={role} onChange={e => setRole(e.target.value)} />
         </div>
       </div>
-      <div style={{ display: 'flex', gap: 8 }}>
-        <div style={{ flex: 1 }}>
-          <label className="k-label" style={{ marginBottom: 5 }}>Scenario</label>
-          <KInput value={scenario} onChange={e => setScenario(e.target.value)} />
-        </div>
-        <div style={{ width: 160 }}>
-          <label className="k-label" style={{ marginBottom: 5 }}>Rule</label>
-          <KInput value={rule} onChange={e => setRule(e.target.value)} />
-        </div>
-      </div>
+     <div style={{ display: 'flex', gap: 8 }}>
+  <div style={{ flex: 1 }}>
+    <label className="k-label" style={{ marginBottom: 5 }}>Scenario</label>
+    <KInput value={scenario} onChange={e => setScenario(e.target.value)} />
+  </div>
+  <div style={{ width: 160 }}>
+    <label className="k-label" style={{ marginBottom: 5 }}>Rule</label>
+    <KInput value={rule} onChange={e => setRule(e.target.value)} />
+  </div>
+</div>
+
+<div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+  <div style={{ flex: 1 }}>
+    <label className="k-label" style={{ marginBottom: 5 }}>성별</label>
+    <KInput value={gender} onChange={e => setGender(e.target.value)} />
+  </div>
+  <div style={{ flex: 1 }}>
+    <label className="k-label" style={{ marginBottom: 5 }}>나이</label>
+    <KInput value={age} onChange={e => setAge(e.target.value)} />
+  </div>
+  <div style={{ flex: 1 }}>
+    <label className="k-label" style={{ marginBottom: 5 }}>키</label>
+    <KInput value={height} onChange={e => setHeight(e.target.value)} />
+  </div>
+  <div style={{ flex: 1 }}>
+    <label className="k-label" style={{ marginBottom: 5 }}>직업</label>
+    <KInput value={job} onChange={e => setJob(e.target.value)} />
+  </div>
+  <div style={{ flex: 1 }}>
+    <label className="k-label" style={{ marginBottom: 5 }}>생일</label>
+    <KInput value={birthday} onChange={e => setBirthday(e.target.value)} />
+  </div>
+</div>
 
       {/* 이미지 방식 + 표정 목록 */}
       <div>
