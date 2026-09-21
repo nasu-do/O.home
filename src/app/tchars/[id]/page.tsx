@@ -111,6 +111,40 @@ export default function TCharDetailPage() {
                 <b style={{ minWidth: 70, color: 'var(--faint)', fontWeight: 600 }}>Role</b>{c.role}
               </div>
             )}
+            {c.gender && (
+              <div style={{ display: 'flex', gap: 10 }}>
+                 <b style={{ minWidth: 70, color: 'var(--faint)', fontWeight: 600 }}>성별</b>
+                  <span>{c.gender}</span>
+              </div>
+            )}
+
+            {c.age && (
+              <div style={{ display: 'flex', gap: 10 }}>
+                <b style={{ minWidth: 70, color: 'var(--faint)', fontWeight: 600 }}>나이</b>
+                <span>{c.age}</span>
+              </div>
+            )}
+
+            {c.height && (
+              <div style={{ display: 'flex', gap: 10 }}>
+                 <b style={{ minWidth: 70, color: 'var(--faint)', fontWeight: 600 }}>키</b>
+                  <span>{c.height}</span>
+              </div>
+            )}
+
+            {c.job && (
+              <div style={{ display: 'flex', gap: 10 }}>
+              <b style={{ minWidth: 70, color: 'var(--faint)', fontWeight: 600 }}>직업</b>
+              <span>{c.job}</span>
+             </div>
+            )}
+
+            {c.birthday && (
+              <div style={{ display: 'flex', gap: 10 }}>
+              <b style={{ minWidth: 70, color: 'var(--faint)', fontWeight: 600 }}>생일</b>
+              <span>{c.birthday}</span>
+            </div>
+            )}
           </div>
           {c.desc ? (
             <div className="post-body" style={{ fontSize: 13, paddingTop: 14 }}
