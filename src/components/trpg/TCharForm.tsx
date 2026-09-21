@@ -195,11 +195,6 @@ export function TCharForm({ editId }: { editId?: string }) {
           <label className="k-label" style={{ marginBottom: 5 }}>Name</label>
           <KInput value={name} onChange={e => setName(e.target.value)} />
         </div>
-        <div style={{ width: 130 }}>
-          <label className="k-label" style={{ marginBottom: 5 }}>Role</label>
-          {/* PL · GMPC · HO1 등 자유 표기 */}
-          <KInput value={role} onChange={e => setRole(e.target.value)} />
-        </div>
       </div>
      <div style={{ display: 'flex', gap: 8 }}>
   <div style={{ flex: 1 }}>
