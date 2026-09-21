@@ -96,19 +96,9 @@ export default function TCharDetailPage() {
             )}
           </h2>
           <div style={{ display: 'grid', gap: 7, padding: '12px 0', borderBottom: '1px dashed var(--line)', fontSize: 12.5 }}>
-            {c.scenario && (
-              <div style={{ display: 'flex', gap: 10 }}>
-                <b style={{ minWidth: 70, color: 'var(--faint)', fontWeight: 600 }}>Scenario</b>{c.scenario}
-              </div>
-            )}
-            {c.rule && (
-              <div style={{ display: 'flex', gap: 10 }}>
-                <b style={{ minWidth: 70, color: 'var(--faint)', fontWeight: 600 }}>Rule</b>{c.rule}
-              </div>
-            )}
-            {c.role && (
-              <div style={{ display: 'flex', gap: 10 }}>
-                <b style={{ minWidth: 70, color: 'var(--faint)', fontWeight: 600 }}>Role</b>{c.role}
+            {(c.scenario || c.rule) && (
+              <div style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 10 }}>
+              {[c.scenario, c.rule].filter(Boolean).join(' · ')}
               </div>
             )}
             {c.gender && (
